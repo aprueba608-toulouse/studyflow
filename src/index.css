@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #F26B1D;
+  --secondary: #8C4A32;
+  --bg-light: #FDF7F2;
+  --bg-card: #FEF0E6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ECE5DE;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #232323;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Custom scrollbar for mobile preview */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 74, 50, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 74, 50, 0.4);
+}
+
+/* Smooth input focus */
+input,
+textarea,
+select {
+  outline: none;
+}
