@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { ChevronRight, Calendar, SlidersHorizontal, FileText, BookOpen, Users } from 'lucide-react';
 
 export const CourseDetailScreen = () => {
@@ -44,10 +44,7 @@ export const CourseDetailScreen = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left">
-      <HeaderBar type="tab" title="Cursos" />
-
-      <div className="px-5 pt-4 space-y-4">
+    <MobileLayout header={<HeaderBar type="tab" title="Cursos" />} contentClassName="px-5 pt-4 space-y-4 pb-6">
         {/* Course Hero Banner matching Figma Page 39 */}
         <div className="flex items-center justify-between pt-1 pb-2">
           <div>
@@ -140,9 +137,6 @@ export const CourseDetailScreen = () => {
             </div>
           ))}
         </div>
-      </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

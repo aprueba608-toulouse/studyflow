@@ -14,7 +14,7 @@ export const GoogleAuthModal = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
+    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
       <div className="w-full max-w-[370px] bg-white rounded-3xl p-6 shadow-2xl relative text-left">
         {/* Top Header */}
         <div className="flex items-center justify-between pb-3 border-b border-gray-100">

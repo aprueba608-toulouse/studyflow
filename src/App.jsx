@@ -85,29 +85,35 @@ export const App = () => {
       <ScreenSwitcher isMobileFrame={isMobileFrame} setIsMobileFrame={setIsMobileFrame} />
 
       {/* Main Container */}
-      <div className={`w-full flex-1 flex items-center justify-center ${isMobileFrame ? 'py-8 px-4' : ''}`}>
+      <div className={`w-full flex-1 flex items-center justify-center ${isMobileFrame ? 'py-6 px-4' : ''}`}>
         {isMobileFrame ? (
-          /* Realistic iPhone 15 Mobile Frame */
-          <div className="relative w-full max-w-[400px] h-[844px] bg-[#FDF7F2] rounded-[48px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border-[10px] border-[#2A2B2D] overflow-hidden flex flex-col">
+          /* Realistic iPhone 15 Mobile Frame (393 x 852 px) */
+          <div className="relative w-[393px] h-[852px] max-w-full max-h-[100dvh] bg-[#FDF7F2] rounded-[48px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] border-[10px] border-[#2A2B2D] overflow-hidden flex flex-col isolate">
             {/* Screen Content */}
-            <div className="flex-1 overflow-y-auto relative no-scrollbar">
+            <div className="w-full h-full flex flex-col overflow-hidden relative">
               {renderScreen()}
             </div>
+
+            {/* Overlays & Modals scoped inside device frame */}
+            <GoogleAuthModal />
+            <HelpChatModal />
+            <DrawerMenu />
           </div>
         ) : (
-          /* Responsive View */
-          <div className="w-full max-w-md min-h-screen bg-[#FDF7F2] shadow-xl overflow-hidden flex flex-col relative">
-            <div className="flex-1 overflow-y-auto relative">
+          /* Responsive View (393 x 852 px reference) */
+          <div className="relative w-full max-w-[393px] h-[852px] max-h-[100dvh] bg-[#FDF7F2] shadow-xl overflow-hidden flex flex-col isolate">
+            {/* Screen Content */}
+            <div className="w-full h-full flex flex-col overflow-hidden relative">
               {renderScreen()}
             </div>
+
+            {/* Overlays & Modals scoped inside device frame */}
+            <GoogleAuthModal />
+            <HelpChatModal />
+            <DrawerMenu />
           </div>
         )}
       </div>
-
-      {/* Global Overlays & Modals */}
-      <GoogleAuthModal />
-      <HelpChatModal />
-      <DrawerMenu />
     </div>
   );
 };

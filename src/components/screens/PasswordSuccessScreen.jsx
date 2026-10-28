@@ -6,10 +6,12 @@ export const PasswordSuccessScreen = () => {
   const { navigateTo } = useApp();
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] flex flex-col justify-between px-6 pb-12 pt-2 text-center">
-      <StatusBar dark={false} />
+    <div className="h-full w-full bg-[#FDF7F2] flex flex-col justify-between px-6 pb-8 pt-2 text-center overflow-hidden">
+      <div className="flex-shrink-0">
+        <StatusBar dark={false} />
+      </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center max-w-sm mx-auto w-full">
+      <main className="flex-1 overflow-y-auto min-h-0 flex flex-col items-center justify-center max-w-sm mx-auto w-full">
         {/* Success Icon matching Figma Page 33 / Frame.svg */}
         <div className="w-56 h-56 mb-8 hover:scale-105 transition-transform duration-300">
           <img
@@ -31,7 +33,7 @@ export const PasswordSuccessScreen = () => {
             Iniciar Sesión
           </button>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

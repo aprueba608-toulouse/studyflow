@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { StudyIcon, StatusBar } from '../common/FigmaIcons';
 import { Check, Bell, ArrowRight, Eye, ChevronRight } from 'lucide-react';
 
@@ -13,10 +13,7 @@ export const DesignSystemShowcase = () => {
   const [sampleText, setSampleText] = useState('Tu texto aquí');
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-32 text-left">
-      <HeaderBar type="sub" title="Design System (StudyFlow)" onBack={() => navigateTo('home', 'home')} />
-
-      <div className="px-5 pt-4 space-y-8 max-w-sm mx-auto w-full">
+    <MobileLayout header={<HeaderBar type="sub" title="Design System (StudyFlow)" onBack={() => navigateTo('home', 'home')} />} contentClassName="px-5 pt-4 space-y-8 pb-6 max-w-sm mx-auto w-full">
         <div className="bg-[#FEF0E6] p-4 rounded-2xl border border-[#FED4B9]">
           <h2 className="text-base font-bold text-[#8C4A32] font-heading">
             Design Tokens & Figma Components
@@ -208,9 +205,6 @@ export const DesignSystemShowcase = () => {
             ))}
           </div>
         </section>
-      </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

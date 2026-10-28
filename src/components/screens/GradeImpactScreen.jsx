@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { Edit3, Upload } from 'lucide-react';
 
 export const GradeImpactScreen = () => {
@@ -11,10 +11,7 @@ export const GradeImpactScreen = () => {
   const [suggestedPriority, setSuggestedPriority] = useState('Media');
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left">
-      <HeaderBar type="sub" title="Impacto en Nota" onBack={() => navigateTo('task-detail')} />
-
-      <div className="px-6 pt-5 max-w-sm mx-auto w-full space-y-5">
+    <MobileLayout header={<HeaderBar type="sub" title="Impacto en Nota" onBack={() => navigateTo('task-detail')} />} contentClassName="px-6 pt-5 pb-6 max-w-sm mx-auto w-full space-y-5">
         <h2 className="text-xl font-bold text-[#232323] font-heading ml-1">
           Priorización
         </h2>
@@ -135,9 +132,6 @@ export const GradeImpactScreen = () => {
             Guardar
           </button>
         </div>
-      </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

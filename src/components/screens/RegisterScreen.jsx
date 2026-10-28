@@ -16,9 +16,9 @@ export const RegisterScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] flex flex-col justify-between pb-6">
+    <div className="h-full w-full bg-[#FDF7F2] flex flex-col overflow-hidden text-left">
       {/* Top Bar with back option */}
-      <div className="bg-[#8C4A32] text-white pt-2 pb-3 px-4">
+      <div className="flex-shrink-0 bg-[#8C4A32] text-white pt-2 pb-3 px-4 z-10">
         <StatusBar dark={true} />
         <div className="flex items-center space-x-2 mt-1">
           <button
@@ -31,7 +31,7 @@ export const RegisterScreen = () => {
         </div>
       </div>
 
-      <div className="flex-1 px-6 pt-4 max-w-sm mx-auto w-full flex flex-col items-center">
+      <main className="flex-1 overflow-y-auto overflow-x-hidden min-h-0 px-6 pt-4 pb-8 max-w-sm mx-auto w-full flex flex-col items-center">
         {/* Emblem */}
         <div className="w-24 h-24 my-2">
           <img
@@ -122,7 +122,7 @@ export const RegisterScreen = () => {
             Inicia sesión
           </button>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

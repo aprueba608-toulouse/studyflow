@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { ChevronRight, ListChecks, Calendar, ChevronDown } from 'lucide-react';
 
 export const CoursesScreen = () => {
@@ -20,16 +20,18 @@ export const CoursesScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left">
-      <HeaderBar
-        type="tab"
-        title="Cursos"
-        searchPlaceholder="Buscar curso o profesor"
-        searchValue={search}
-        onSearchChange={(e) => setSearch(e.target.value)}
-      />
-
-      <div className="px-5 pt-4 space-y-4">
+    <MobileLayout
+      header={
+        <HeaderBar
+          type="tab"
+          title="Cursos"
+          searchPlaceholder="Buscar curso o profesor"
+          searchValue={search}
+          onSearchChange={(e) => setSearch(e.target.value)}
+        />
+      }
+      contentClassName="px-5 pt-4 space-y-4 pb-6"
+    >
         {/* Header section with filter */}
         <div className="flex items-center justify-between ml-1">
           <h2 className="text-base font-bold text-[#232323] font-heading">
@@ -120,9 +122,6 @@ export const CoursesScreen = () => {
             </div>
           ))}
         </div>
-      </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

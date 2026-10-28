@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { ChevronRight, Plus, Eye, CheckCircle2, FileText } from 'lucide-react';
 
 export const TasksScreen = () => {
@@ -26,17 +26,28 @@ export const TasksScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left relative">
-      <HeaderBar
-        type="tab"
-        title="Tareas"
-        searchPlaceholder="Buscar"
-        searchValue={search}
-        onSearchChange={(e) => setSearch(e.target.value)}
-      />
-
-      <div className="px-5 pt-4 space-y-6">
-        {Object.entries(groupedTasks).map(([courseName, courseTasks]) => (
+    <MobileLayout
+      header={
+        <HeaderBar
+          type="tab"
+          title="Tareas"
+          searchPlaceholder="Buscar"
+          searchValue={search}
+          onSearchChange={(e) => setSearch(e.target.value)}
+        />
+      }
+      floatingAction={
+        <button
+          onClick={() => navigateTo('quick-task')}
+          className="w-13 h-13 rounded-full bg-[#F26B1D] hover:bg-[#DF5C12] text-white flex items-center justify-center shadow-btn transition active:scale-90"
+          title="Crear nueva tarea"
+        >
+          <Plus className="w-7 h-7 stroke-[2.5]" />
+        </button>
+      }
+      contentClassName="px-5 pt-4 space-y-6 pb-20"
+    >
+      {Object.entries(groupedTasks).map(([courseName, courseTasks]) => (
           <div key={courseName} className="space-y-3">
             <h2 className="text-base font-bold text-[#232323] font-heading ml-1">
               {courseName}
@@ -122,18 +133,6 @@ export const TasksScreen = () => {
             No se encontraron tareas con ese criterio.
           </div>
         )}
-      </div>
-
-      {/* Floating Action Button (+) matching Figma Page 41 */}
-      <button
-        onClick={() => navigateTo('quick-task')}
-        className="fixed bottom-20 right-6 w-13 h-13 rounded-full bg-[#F26B1D] hover:bg-[#DF5C12] text-white flex items-center justify-center shadow-btn z-40 transition active:scale-90"
-        title="Crear nueva tarea"
-      >
-        <Plus className="w-7 h-7 stroke-[2.5]" />
-      </button>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

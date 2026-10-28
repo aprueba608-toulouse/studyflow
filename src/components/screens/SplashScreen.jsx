@@ -7,12 +7,14 @@ export const SplashScreen = () => {
   const { navigateTo, setShowHelpModal } = useApp();
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] flex flex-col justify-between px-6 pb-10 pt-2 text-center relative overflow-hidden">
+    <div className="h-full w-full bg-[#FDF7F2] flex flex-col justify-between px-6 pb-6 pt-2 text-center relative overflow-hidden">
       {/* Top Status Bar */}
-      <StatusBar dark={false} />
+      <div className="flex-shrink-0">
+        <StatusBar dark={false} />
+      </div>
 
       {/* Main Logo & Branding */}
-      <div className="flex-1 flex flex-col items-center justify-center my-auto">
+      <main className="flex-1 flex flex-col items-center justify-center my-auto overflow-y-auto min-h-0">
         {/* Full Logo Banner */}
         <Logo className='mb-8 max-w-[240px]' type='logotipo' />
 
@@ -21,10 +23,10 @@ export const SplashScreen = () => {
           <div className="absolute inset-0 rounded-full border border-[#F26B1D]/30 animate-pulse" />
           <Logo className='m-12 w-30 h-30 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300' type='isologo' />
         </div>
-      </div>
+      </main>
 
       {/* Action Buttons matching Figma styles */}
-      <div className="w-full max-w-sm mx-auto space-y-4">
+      <div className="flex-shrink-0 w-full max-w-sm mx-auto space-y-3 pb-2">
         {/* Primary Orange Button */}
         <button
           onClick={() => navigateTo('login')}

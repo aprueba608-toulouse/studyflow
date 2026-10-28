@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 
 export const QuickTaskScreen = () => {
   const { addTask, navigateTo, courses } = useApp();
@@ -26,10 +26,7 @@ export const QuickTaskScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left">
-      <HeaderBar type="sub" title="Tarea" />
-
-      <div className="px-6 pt-4 max-w-sm mx-auto w-full">
+    <MobileLayout header={<HeaderBar type="sub" title="Tarea" />} contentClassName="px-6 pt-4 pb-6 max-w-sm mx-auto w-full">
         <h2 className="text-base font-bold text-[#232323] font-heading mb-4 ml-1">
           Nueva tarea
         </h2>
@@ -109,9 +106,6 @@ export const QuickTaskScreen = () => {
             </button>
           </div>
         </form>
-      </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

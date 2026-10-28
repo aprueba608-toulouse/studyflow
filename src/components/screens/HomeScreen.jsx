@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { ChevronRight, FileText, Calendar, GraduationCap, X } from 'lucide-react';
 
 export const HomeScreen = () => {
@@ -23,9 +23,7 @@ export const HomeScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-24 text-left">
-      {/* Top Header */}
-      <HeaderBar type="home" />
+    <MobileLayout header={<HeaderBar type="home" />} contentClassName="px-5 pt-4 space-y-6 pb-6">
 
       {/* In-app Push Notification Toast Banner (matching Figma Page 35) */}
       {showNotification && (
@@ -176,8 +174,6 @@ export const HomeScreen = () => {
           </div>
         </div>
       </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

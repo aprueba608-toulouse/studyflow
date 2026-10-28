@@ -8,11 +8,11 @@ export const DrawerMenu = () => {
   if (!showDrawer) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex">
+    <div className="absolute inset-0 z-50 flex overflow-hidden">
       {/* Backdrop */}
       <div
         onClick={() => setShowDrawer(false)}
-        className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
       />
 
       {/* Drawer content matching Figma Page 25 */}

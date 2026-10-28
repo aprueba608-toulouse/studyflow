@@ -16,9 +16,9 @@ export const LoginScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] flex flex-col justify-between pb-8">
+    <div className="h-full w-full bg-[#FDF7F2] flex flex-col overflow-hidden text-left">
       {/* Top Brown Header matching Page 30 */}
-      <div className="bg-[#8C4A32] text-white pt-2 pb-8 px-6 rounded-b-[32px] shadow-md relative">
+      <div className="flex-shrink-0 bg-[#8C4A32] text-white pt-2 pb-8 px-6 rounded-b-[32px] shadow-md relative z-10">
         <StatusBar dark={true} />
         <div className="mt-4 flex flex-col items-start space-y-2">
           <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
@@ -34,7 +34,7 @@ export const LoginScreen = () => {
       </div>
 
       {/* Main Login Form */}
-      <div className="flex-1 px-6 pt-6 max-w-sm mx-auto w-full">
+      <main className="flex-1 overflow-y-auto overflow-x-hidden min-h-0 px-6 pt-6 pb-8 max-w-sm mx-auto w-full flex flex-col justify-between">
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email input */}
           <div className="text-left">
@@ -153,7 +153,7 @@ export const LoginScreen = () => {
             Regístrate aquí
           </button>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

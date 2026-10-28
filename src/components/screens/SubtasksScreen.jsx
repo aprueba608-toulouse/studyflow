@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { Check, Plus } from 'lucide-react';
 
 export const SubtasksScreen = () => {
@@ -30,10 +30,7 @@ export const SubtasksScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left">
-      <HeaderBar type="sub" title="Subtareas" onBack={() => navigateTo('task-detail')} />
-
-      <div className="px-6 pt-5 max-w-sm mx-auto w-full">
+    <MobileLayout header={<HeaderBar type="sub" title="Subtareas" onBack={() => navigateTo('task-detail')} />} contentClassName="px-6 pt-5 pb-6 max-w-sm mx-auto w-full">
         {/* Title & Progress Header matching Figma Page 43 */}
         <div className="mb-6">
           <h2 className="text-xl font-bold text-[#232323] font-heading">
@@ -120,9 +117,6 @@ export const SubtasksScreen = () => {
             Guardar
           </button>
         </div>
-      </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

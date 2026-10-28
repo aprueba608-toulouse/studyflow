@@ -32,7 +32,7 @@ export const HelpChatModal = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-150">
+    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-150">
       <div className="w-full max-w-[360px] bg-white rounded-3xl p-6 shadow-2xl relative border border-orange-100 flex flex-col min-h-[380px]">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-orange-100">

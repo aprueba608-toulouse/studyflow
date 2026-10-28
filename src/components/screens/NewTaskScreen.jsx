@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { Upload, Plus, Trash2 } from 'lucide-react';
 
 export const NewTaskScreen = () => {
@@ -42,10 +42,7 @@ export const NewTaskScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left">
-      <HeaderBar type="sub" title="Nueva Tarea" />
-
-      <div className="px-6 pt-4 max-w-sm mx-auto w-full">
+    <MobileLayout header={<HeaderBar type="sub" title="Nueva Tarea" />} contentClassName="px-6 pt-4 pb-6 max-w-sm mx-auto w-full">
         <h2 className="text-base font-bold text-[#F26B1D] font-heading mb-4 ml-1">
           Nueva tarea
         </h2>
@@ -183,9 +180,6 @@ export const NewTaskScreen = () => {
             </button>
           </div>
         </form>
-      </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

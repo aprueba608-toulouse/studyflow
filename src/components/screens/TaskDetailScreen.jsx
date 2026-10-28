@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { Check, CheckCircle2, BookOpen, Calendar, AlertTriangle, AlignLeft, Bell, ListChecks, Target } from 'lucide-react';
 
 export const TaskDetailScreen = () => {
@@ -9,12 +9,12 @@ export const TaskDetailScreen = () => {
 
   if (!selectedTask) {
     return (
-      <div className="min-h-screen bg-[#FDF7F2] p-8 text-center">
-        <p>No hay tarea seleccionada.</p>
+      <MobileLayout header={<HeaderBar type="sub" title="Detalle de la actividad" />} contentClassName="p-8 text-center flex flex-col items-center justify-center">
+        <p className="text-gray-600">No hay tarea seleccionada.</p>
         <button onClick={() => navigateTo('tasks')} className="mt-4 text-[#F26B1D] font-bold">
           Volver a Tareas
         </button>
-      </div>
+      </MobileLayout>
     );
   }
 
@@ -23,10 +23,7 @@ export const TaskDetailScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left">
-      <HeaderBar type="sub" title="Detalle de la actividad" />
-
-      <div className="px-5 pt-4 space-y-4">
+    <MobileLayout header={<HeaderBar type="sub" title="Detalle de la actividad" />} contentClassName="px-5 pt-4 space-y-4 pb-6">
         {/* Title and Subject Pill */}
         <div className="space-y-2">
           <h2 className="text-xl font-bold text-[#232323] font-heading">
@@ -185,9 +182,6 @@ export const TaskDetailScreen = () => {
             Editar Tarea
           </button>
         </div>
-      </div>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

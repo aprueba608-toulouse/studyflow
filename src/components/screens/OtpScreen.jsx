@@ -32,19 +32,21 @@ export const OtpScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] flex flex-col justify-between px-6 pb-12 pt-2">
-      <StatusBar dark={false} />
+    <div className="h-full w-full bg-[#FDF7F2] flex flex-col justify-between px-6 pb-8 pt-2 overflow-hidden text-center">
+      <div className="flex-shrink-0">
+        <StatusBar dark={false} />
 
-      <div className="flex items-center space-x-2 mt-2">
-        <button
-          onClick={() => navigateTo('forgot-password')}
-          className="p-1 rounded-full text-[#8C4A32] hover:bg-[#FEF0E6]"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </button>
+        <div className="flex items-center space-x-2 mt-2">
+          <button
+            onClick={() => navigateTo('forgot-password')}
+            className="p-1 rounded-full text-[#8C4A32] hover:bg-[#FEF0E6]"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </button>
+        </div>
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center max-w-sm mx-auto w-full">
+      <main className="flex-1 overflow-y-auto min-h-0 flex flex-col items-center justify-center max-w-sm mx-auto w-full">
         <h1 className="text-xl font-bold text-[#666666] font-heading mb-10 tracking-tight">
           Codigo de recuperacion
         </h1>
@@ -88,7 +90,7 @@ export const OtpScreen = () => {
             Reenviar
           </button>
         </p>
-      </div>
+      </main>
     </div>
   );
 };

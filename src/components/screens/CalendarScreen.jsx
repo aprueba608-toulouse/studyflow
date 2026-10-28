@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HeaderBar } from '../common/HeaderBar';
-import { BottomNavBar } from '../common/BottomNavBar';
+import { MobileLayout } from '../common/MobileLayout';
 import { ChevronLeft, ChevronRight, Search, CheckCircle2, MoreHorizontal, X } from 'lucide-react';
 
 export const CalendarScreen = () => {
@@ -83,16 +83,30 @@ export const CalendarScreen = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FDF7F2] pb-28 text-left relative">
-      <HeaderBar
-        type="tab"
-        title="Calendario"
-        searchPlaceholder="Buscar en calendario"
-        searchValue={search}
-        onSearchChange={(e) => setSearch(e.target.value)}
-      />
-
-      <div className="px-5 pt-3 space-y-4">
+    <MobileLayout
+      header={
+        <HeaderBar
+          type="tab"
+          title="Calendario"
+          searchPlaceholder="Buscar en calendario"
+          searchValue={search}
+          onSearchChange={(e) => setSearch(e.target.value)}
+        />
+      }
+      floatingAction={
+        <button
+          onClick={() => {
+            const query = prompt('Buscar en calendario:');
+            if (query) setSearch(query);
+          }}
+          className="w-13 h-13 rounded-full bg-[#F26B1D] hover:bg-[#DF5C12] text-white flex items-center justify-center shadow-btn transition active:scale-90"
+          title="Buscar fecha o evento"
+        >
+          <Search className="w-6 h-6 stroke-[2.5]" />
+        </button>
+      }
+      contentClassName="px-5 pt-3 space-y-4 pb-20"
+    >
         {/* Month Navigation matching Figma Page 42 */}
         <div className="flex items-center justify-between px-2">
           <button className="p-1 rounded-full text-[#F26B1D] hover:bg-orange-100 transition">
@@ -222,21 +236,6 @@ export const CalendarScreen = () => {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Floating Search Glass Action Button matching Figma Page 42 */}
-      <button
-        onClick={() => {
-          const query = prompt('Buscar en calendario:');
-          if (query) setSearch(query);
-        }}
-        className="fixed bottom-20 right-6 w-13 h-13 rounded-full bg-[#F26B1D] hover:bg-[#DF5C12] text-white flex items-center justify-center shadow-btn z-40 transition active:scale-90"
-        title="Buscar fecha o evento"
-      >
-        <Search className="w-6 h-6 stroke-[2.5]" />
-      </button>
-
-      <BottomNavBar />
-    </div>
+    </MobileLayout>
   );
 };

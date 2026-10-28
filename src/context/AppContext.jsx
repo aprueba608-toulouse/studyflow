@@ -49,7 +49,7 @@ export const INITIAL_COURSES = [
   {
     id: 'matematica',
     name: 'Matemática',
-    professor: 'Prof. Pepe',
+    professor: 'Prof. Jauregui',
     pendingTasks: 2,
     nextExam: '28 Oct',
     progress: 60,
@@ -59,7 +59,7 @@ export const INITIAL_COURSES = [
   {
     id: 'animacion',
     name: 'Animación 3D',
-    professor: 'Prof. Pepe',
+    professor: 'Prof. Mariela',
     pendingTasks: 2,
     nextExam: '28 Oct',
     progress: 60,
@@ -69,7 +69,7 @@ export const INITIAL_COURSES = [
   {
     id: 'programacion',
     name: 'Programación',
-    professor: 'Prof. Pepe',
+    professor: 'Prof. Atunga',
     pendingTasks: 2,
     nextExam: '28 Oct',
     progress: 60,
